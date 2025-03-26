@@ -1,4 +1,6 @@
-import { it, beforeAll, afterAll, describe, expect } from "vitest";
+import { execSync } from "node:child_process";
+
+import { it, beforeAll, afterAll, describe, expect, beforeEach } from "vitest";
 import request from "supertest";
 import { app } from "../src/app";
 
@@ -11,8 +13,13 @@ describe("Transactions routes", () => {
     await app.close();
   });
 
+  beforeEach(() => {
+    execSync("npm run knex migrate:rollback --all");
+    execSync("npm run knex migrate:latest");
+  });
+
   it("shoulde be able to create a new transaction", async () => {
-    const response = await request(app.server)
+    await request(app.server)
       .post("/transactions")
       .send({
         title: "New transaction",
@@ -20,8 +27,6 @@ describe("Transactions routes", () => {
         type: "credit",
       })
       .expect(201);
-
-    console.log(response.get("Set-Cookie"));
   });
 
   it("shoulde be able to list all transactions", async () => {
@@ -46,5 +51,36 @@ describe("Transactions routes", () => {
         amount: 5000,
       }),
     ]);
+  });
+
+  it("shoulde be able to get a specific transaction", async () => {
+    const createTransactionResponse = await request(app.server)
+      .post("/transactions")
+      .send({
+        title: "New transaction",
+        amount: 5000,
+        type: "credit",
+      });
+
+    const cookies = createTransactionResponse.get("Set-Cookie") ?? [];
+
+    const listTransactionResponse = await request(app.server)
+      .get("/transactions")
+      .set("Cookie", cookies)
+      .expect(200);
+
+    const transactionId = listTransactionResponse.body.transactions[0].id;
+
+    const getTransactionResponse = await request(app.server)
+      .get(`/transactions/${transactionId}`)
+      .set("Cookie", cookies)
+      .expect(200);
+
+    expect(getTransactionResponse.body.transaction).toEqual(
+      expect.objectContaining({
+        title: "New transaction",
+        amount: 5000,
+      })
+    );
   });
 });
