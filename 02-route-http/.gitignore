@@ -1,7 +1,10 @@
 # Learn more https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
 
-# db
-db/app.db
+# database
+db/*.db
+
+# Build
+build
 
 # dependencies
 node_modules/
