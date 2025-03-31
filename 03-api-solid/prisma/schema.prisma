@@ -36,7 +36,7 @@ model CheckIn {
   gym   Gym    @relation(fields: [gym_id], references: [id])
   gym_id String
 
-  @@map("check_in")
+  @@map("check_ins")
 }
 
 model Gym {
