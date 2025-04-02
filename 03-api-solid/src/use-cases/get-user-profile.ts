@@ -1,4 +1,4 @@
-import { usersRepository } from "@/repositories/users-repositoriy";
+import { UsersRepository } from "@/repositories/users-repositoriy";
 import { User } from "@prisma/client";
 import { ResourceNotFoundError } from "./erros/resource-not-found-error";
 
@@ -11,7 +11,7 @@ interface GetUserProfileUseCaseResponse {
 }
 
 export class GetUserProfileUseCase {
-  constructor(private userRepository: usersRepository) {}
+  constructor(private userRepository: UsersRepository) {}
 
   async execute({
     userId,
