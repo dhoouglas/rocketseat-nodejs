@@ -1,6 +1,9 @@
-name: Run unit Tests
+name: Run Unit Tests
 
-on: [push]
+on:
+  push:
+    branches: ["03-api-solid"]
+    paths: ["03-api-solid/**"]
 
 jobs:
   run-unit-tests:
@@ -13,6 +16,7 @@ jobs:
         with:
           node-version: 20
           cache: "npm"
-      - run: npm ci
-
-      - run: npm run test
+      - name: Install dependencies
+        run: npm ci
+      - name: Run tests
+        run: npm run test
