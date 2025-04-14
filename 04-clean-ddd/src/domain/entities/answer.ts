@@ -1,9 +1,12 @@
 import { Entity } from "../../core/entities/entity";
+import { UniqueEtityId } from "../../core/entities/unique-entity-id";
 
 interface AnswerProps {
+  authorId: UniqueEtityId;
+  questionId: UniqueEtityId;
   content: string;
-  authorId: string;
-  questionId: string;
+  createdAt: Date;
+  updatedAt?: Date;
 }
 
 export class Answer extends Entity<AnswerProps> {
