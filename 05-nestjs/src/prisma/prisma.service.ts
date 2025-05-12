@@ -11,6 +11,7 @@ export class PrismaService
     super({
       log: ["warn", "error"],
     });
+    this.client = this;
   }
   onModuleInit() {
     return this.$connect();
