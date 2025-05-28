@@ -43,7 +43,8 @@ beforeAll(async () => {
 
   await redis.flushdb();
 
-  execSync("npx prisma migrate deploy");
+  // execSync("npx prisma migrate deploy");
+  execSync("npx prisma db push --force-reset");
 });
 
 afterAll(async () => {
