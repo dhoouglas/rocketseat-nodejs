@@ -1,5 +1,7 @@
 # 🚀 Rocketseat Node.js - Projeto Modular  
 
+[![Rocketseat](https://img.shields.io/badge/Certificado-Rocketseat-8257E5?style=flat-square)](https://app.rocketseat.com.br/certificates/58914eb6-f137-479e-953f-9c7e297de583)
+
 Backend em Node.js desenvolvido durante o curso da Rocketseat, com **evolução técnica e arquitetural** dividida em módulos.  
 
 ## 🤖 Módulos e Tecnologias  
@@ -7,10 +9,10 @@ Backend em Node.js desenvolvido durante o curso da Rocketseat, com **evolução 
 | Módulo                  | Descrição                          | Tecnologias/Padrões                  |  
 |-------------------------|------------------------------------|---------------------------------------|  
 | **`01-fundamentos-nodejs`** | Conceitos básicos do Node.js      | `Node.js`, `Nodemon`                |  
-| **`02-route-http`**         | Rotas HTTP com Express            | `Express`, `HTTP Methods`           |  
+| **`02-route-http`**         | Rotas HTTP com Express            | `Express`, `HTTP Methods`, `Pirâmide de testes`, `Vitest`          |  
 | **`03-api-solid`**          | API com Princípios SOLID          | `SOLID`, `Inversão de Dependência`  |  
 | **`04-clean-ddd`**          | Arquitetura Clean + DDD           | `Clean Architecture`, `Domain-Driven Design` |  
-| **`05-nestjs`**             | Framework NestJS                  | `NestJS`, `TypeORM`, `Swagger`      |  
+| **`05-nestjs`**             | Framework NestJS                  | `NestJS`, `TypeORM`, `Prisma`, `Swagger`      |  
 
 ---
 
@@ -22,7 +24,8 @@ Backend em Node.js desenvolvido durante o curso da Rocketseat, com **evolução 
 
 ### **2. `02-route-http`**  
 - Criação de rotas HTTP (GET, POST, PUT, DELETE) com **Express**.  
-- Middlewares básicos (ex: `express.json()`).  
+- Middlewares básicos (ex: `express.json()`).
+- Pirâmide de testes e Vitest
 
 ### **3. `03-api-solid`**  
 ✅ **Padrão SOLID Aplicado**:  
@@ -39,8 +42,9 @@ Backend em Node.js desenvolvido durante o curso da Rocketseat, com **evolução 
 ✅ **NestJS Framework**:   
 - Injeção de dependências nativa.
 - Módulos (`@Module`), Controladores (`@Controller`).
-- Swagger para documentação automática da API.
 - Integração com TypeORM (ou Prisma).
+- Swagger para documentação automática da API.
+
 
 ## 📚 Links Úteis  
 
